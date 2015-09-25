@@ -57,7 +57,7 @@ for (var counterY=0, string=""; counterY<size; counterY++) {
 				string = string + space;
 			modifierX = !modifierX;
 	}
-	console.log(" ");
+	// console.log(" ");
 	console.log(string);
 	string="";
 	modifier = !modifier;
