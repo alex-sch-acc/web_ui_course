@@ -10,11 +10,11 @@ for (var output = "", brick = "#", counter = 0; counter < 7; counter++) {
 // ------------
 // Exercise 1 (b)
 // ------------
-	var output = "", brick = "#";
-	do {
-		output = output + brick;
-		console.log(output);
-	} while (output.length <7);
+var output = "", brick = "#";
+do {
+	output = output + brick;
+	console.log(output);
+} while (output.length <7);
 
 // not ready
 
