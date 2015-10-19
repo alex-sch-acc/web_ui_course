@@ -22,7 +22,7 @@ do {
 // Exercise 2
 // ------------
 
-for (var counter=1; counter<101; counter++) {
+for (var counter=1; counter<=100; counter++) {
 	if (counter % 15 == 0)
     	console.log("FizzBuzz"); 
     else if (counter % 5 == 0)
