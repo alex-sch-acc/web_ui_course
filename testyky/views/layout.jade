@@ -1,0 +1,24 @@
+mixin _newUserData()
+	fieldset.newUserData
+		legend Дані про досліджуваного:
+		input(name='surname' placeholder='Прізвище').userSurname
+		input(name='name' placeholder='Ім’я').userName
+		input(name='mail' type='email' placeholder='mail@server.ua').mail
+
+
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/jquery-ui.css')
+	body
+		div.page
+			block content
+		div.footer
+			p &copy; 2015 Alex Schneider for LITS
+		block scripts
+			script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+			script(src='/javascripts/jquery-ui.js')
+			script(src='/javascripts/jquery.backstretch.min.js')
+			script(src='/javascripts/common.js')

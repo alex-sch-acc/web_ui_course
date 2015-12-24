@@ -1,0 +1,49 @@
+mixin selectList(className, ...items)
+	select(class=className)
+		each item in items
+			option(value= item)= item
+
+
+
+extends layout
+
+block content
+	h1= title
+
+	form.adminPage
+		
+		fieldset.examinationType
+			legend Про дослідження
+			input(name="projectName" placeholder="Назва дослідження")
+			label Тип: 
+				+selectList('', "", "Індивідуальне", "Групове")
+		
+		+_newUserData
+
+		fieldset.testSelectSet
+			legend Виберіть методики
+			label Кількість методик: 		
+			+selectList('testCount', "", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+			
+			fieldset.testSelect
+				legend Тест 1
+				select.testList
+					option(value="") 			
+					option(value="test1") методика_1
+					option(value="test2") методика_2
+				br
+				label Тривалість переви після тесту (хв):
+				br
+				input(type="range" min="0" max="5" step="1" value="1").pauseDuration
+				label.pauseDuration 1
+				
+		
+		input(type='submit').submitNewTest
+
+		fieldset.linkToGo
+			input(name='text' type='text' placeholder="Лінк дослідження" disabled).genTestLink
+			button.copyToClipboard скопіювати
+
+block append scripts
+	script(src='/javascripts/uuid.js')
+	script(src='/javascripts/admin.js')

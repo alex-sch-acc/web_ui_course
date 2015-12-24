@@ -1,0 +1,27 @@
+extends layout
+
+block content
+	h1= title
+	div.testArea
+		div.infoBox
+			p.qCounter
+				span 143
+			div.instruction
+			p
+			button.readInstruction Ознайомлений
+			
+		+_newUserData
+	
+		div.qBox
+			p Запитання
+		div.aBox
+			//- input(type="radio" name="radio" value="Відповідь1").answer1 
+			//- input(type="radio" name="radio" value="Відповідь2").answer2 
+			//- input(type="radio" name="radio" value="Відповідь3").answer3 
+
+			button.answer1 Відповідь			
+			button.answer2 Відповідь			
+			button.answer3 Відповідь			
+
+block append scripts
+	script(src='/javascripts/tests.js')

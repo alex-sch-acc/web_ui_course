@@ -1,0 +1,84 @@
+db.tests.insert({name: "ABC1", questions: ["14Q3", "XYZ Company"] } )
+db.tests.insert(
+   {
+     name: "ABC1",
+     questions: {
+        model: "14Q3",
+        manufacturer: "XYZ Company"
+     },
+     stock: [ { size: "S", qty: 25 }, { size: "M", qty: 50 } ],
+     category: "clothing"
+   }
+)
+
+db.packs.insert({
+	uuid: "261e0331-a97f-11e5-b747-95216473bf7c",
+	prefilledForm: "1",	
+	neededForm: "0",
+	formType: "0",
+	testCounts: "3",
+	test1: "someTestID",
+	test1Pause: "",
+	test1Copmleted: "",
+	test2: "someTestID",
+	test2Pause: "",
+	test2Copmleted: "",	
+	test3: "someTestID",
+	test3Pause: "",
+	test3Copmleted: "0",	
+	neededThankyou: "1"
+})
+
+db.tests.insert({
+	name: "Логічне мислення",
+	description: "Ця методика дуже потрібна та корисна",
+	instruction: "При проходженні цієї методики...",
+	qNumber: "6",
+	sNumber: "2",
+	scale1Name: "Шкала 1",
+	scale1Algo: "",
+	scale1Min: "2",
+	scale1Max: "2",
+	scale1Interpret: "Якщо показник за цією шкалою перевищує 2, то - виражена характеристика",
+	questions: ["t1 запитання 1", "t1 запитання 2", t1 запитання 3", "t1 запитання 4", t1 запитання 5", "t1 запитання 6"]
+})
+
+db.results.insert({
+	packUuid: "none",
+	userUuid: "261e0331-a97f-11e5-b747-95216473bf7c",
+	name: "Ivan",
+	surname: "Susanin",
+	email: "Susanin@mail.ru",
+	toAuthor: "Recruiter_1",
+	toProject: "Senior FE Dev",
+	t1_Scale_1: "9",
+	t1_Scale_2: "2",
+	t1_Scale_3: "6",
+	t1_Scale_4: "5",
+	t1_Scale_5: "7",
+	t2_Scale_1: "5",
+	t2_Scale_2: "5",
+	t2_Scale_3: "1",
+	t2_Scale_4: "2",
+	t2_Scale_5: "3"
+})
+
+db.results.insert({
+	packUuid: "none",
+	userUuid: "261e0331-a97f-11e5-b747-95216473bf7c",
+	name: "Ivan",
+	surname: "Susanin",
+	email: "Susanin@mail.ru",
+	toAuthor: "Recruiter_1",
+	toProject: "Senior FE Dev",
+	t1_Scale_1: "0",
+	t1_Scale_2: "0",
+	t1_Scale_3: "0",
+	t1_Scale_4: "0",
+	t1_Scale_5: "0",
+	t2_Scale_1: "0",
+	t2_Scale_2: "0",
+	t2_Scale_3: "0",
+	t2_Scale_4: "0",
+	t2_Scale_5: "0"
+})
