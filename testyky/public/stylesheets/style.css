@@ -37,3 +37,12 @@ div.footer {
 	font-weight: bold;
 	text-align: center;
 }
+
+
+
+/******************************/
+.newUserData{display: none;}
+
+.linkToGo {text-align: center;}
+.linkToGo legend {text-align: left;}
+.linkToGo input {width: 500px; text-align: center;}

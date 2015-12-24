@@ -33,16 +33,16 @@ block content
 					option(value="test2") методика_2
 				br
 				label Тривалість переви після тесту (хв):
-				br
-				input(type="range" min="0" max="5" step="1" value="1").pauseDuration
 				label.pauseDuration 1
+				input(type="range" min="0" max="5" step="1" value="1").pauseDuration
 				
 		
 		input(type='submit').submitNewTest
 
+
 		fieldset.linkToGo
-			input(name='text' type='text' placeholder="Лінк дослідження" disabled).genTestLink
-			button.copyToClipboard скопіювати
+			legend Досліджуваним
+			input(name='text' type='text' placeholder="Скопіюйте та надішліть").genTestLink
 
 block append scripts
 	script(src='/javascripts/uuid.js')
