@@ -25,12 +25,12 @@ function user_packUuidFindUpdate (packUuidVal, userUuidVal, usedFunction, collec
 
 /* GET HOME page */
 router.get('/', function(req, res, next) {
-  // res.render('index', { title: 'Express' });
-    var db = req.db;
-    var collection = db.get('tests');
-    	  collection.find({},{},function(e,docs){
-        res.json(docs);
-    });
+  res.render('index', { title: 'Express' });
+    // var db = req.db;
+    // var collection = db.get('tests');
+    // 	  collection.find({},{},function(e,docs){
+    //     res.json(docs);
+    // });
 });
 
 
@@ -82,6 +82,7 @@ router.get('/admin', function(req, res, next) {
 
 /***************************************/
 
+
 // ADDING a new result document to results collection
 router.post('/addPack', function(req, res) {
   var db = req.db;
@@ -94,6 +95,15 @@ router.post('/addPack', function(req, res) {
 });
 
 
+/* GET (GRAB) all packs */
+router.get('/getpacks', function(req, res, next) {
+  var collection = req.db.get('packs');
+  // console.log(req.params.name);
+  collection.find({}, function(err, result) {
+    if (err) {res.send("There was an error finding user"); } 
+    else {res.send(result);}
+  });
+});
 
 
 
@@ -103,6 +113,17 @@ router.post('/addPack', function(req, res) {
 /* GET RESULTS page */
 router.get('/results', function(req, res, next) {
   res.render('results', { title: 'Results page' });
+});
+
+
+/* GET (GRAB) all results */
+router.get('/getresults', function(req, res, next) {
+  var collection = req.db.get('results');
+  // console.log(req.params.name);
+  collection.find({}, function(err, result) {
+    if (err) {res.send("There was an error finding user"); } 
+    else {res.send(result);}
+  });
 });
 
 
@@ -116,8 +137,6 @@ router.post('/addResult', function(req, res) {
       );
   });
 });
-
-
 
 
 // UPDATING existing result document with a new info in results collection

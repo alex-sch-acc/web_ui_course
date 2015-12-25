@@ -138,11 +138,18 @@ $('.submitNewTest').on('click', function(event) {
 		dbAddValuesRes.name = $('input[name=name]').val();
 		dbAddValuesRes.surname = $('input[name=surname]').val();
 		dbAddValuesRes.email = $('input[name=mail]').val();
+
+		dbAddValues.packUuid = "none";
+		dbAddValues.userUuid = Uuid;
+
 	}
 	else {
 		dbAddValuesRes.projectName = que('input[name=projectName]');
 		dbAddValuesRes.packUuid = Uuid;
 		dbAddValuesRes.userUuid = "none";
+
+		dbAddValues.packUuid = Uuid;
+		dbAddValues.userUuid = "none";
 	}
 
 	// results table
@@ -176,8 +183,10 @@ $('.submitNewTest').on('click', function(event) {
 
 	// update db
 	// add new result
-	ajaxPost(ajaxData[0][0], dbAddValues, ajaxData[0][1]);
-	ajaxPost(ajaxData[4][0], dbAddValuesRes, ajaxData[4][1]);
+	ajaxPost(ajaxData[0][0], dbAddValuesRes, ajaxData[0][1]);
+	
+	// add new pack
+	ajaxPost(ajaxData[4][0], dbAddValues, ajaxData[4][1]);
 
 });
 
@@ -188,34 +197,3 @@ $('.linkToGo input').on('click', function() {
 	/* Act on the event */
 	$(this).select();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// console.log('testUrl =', testUrl);
-// $(".genTestLink").text(testUrl);
-
-
-
-// $(".submitNewTest").onClick() {
-
-// };
