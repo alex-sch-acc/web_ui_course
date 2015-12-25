@@ -1,9 +1,20 @@
 mixin selectList(className, ...items)
-	select(class=className)
+	select(class= className)
 		each item in items
 			option(value= item)= item
 
-
+mixin testsList(className, ...items)
+	each item in items
+		fieldset(class="testSelect_" + item)
+			legend Тест
+			select(class="testList")
+				//- option(value= item)= item
+				//- option(value= item)= item
+				//- option(value= item)= item
+			br
+			label Тривалість переви після тесту (хв):
+			label(class="pauseDuration_" + item) 1
+			input(type="range" min="0" max="5" step="1" value="1" class="pauseDuration_" + item)
 
 extends layout
 
@@ -16,29 +27,17 @@ block content
 			legend Про дослідження
 			input(name="projectName" placeholder="Назва дослідження")
 			label Тип: 
-				+selectList('', "", "Індивідуальне", "Групове")
+				+selectList("examinationType", "", "Індивідуальне", "Групове")
 		
 		+_newUserData
 
 		fieldset.testSelectSet
 			legend Виберіть методики
-			label Кількість методик: 		
-			+selectList('testCount', "", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+			label Кількість методик: 	
+				+selectList('testCount', "0")		
+			+testsList('testList', 1, 2, 3)			
 			
-			fieldset.testSelect
-				legend Тест 1
-				select.testList
-					option(value="") 			
-					option(value="test1") методика_1
-					option(value="test2") методика_2
-				br
-				label Тривалість переви після тесту (хв):
-				label.pauseDuration 1
-				input(type="range" min="0" max="5" step="1" value="1").pauseDuration
-				
-		
 		input(type='submit').submitNewTest
-
 
 		fieldset.linkToGo
 			legend Досліджуваним

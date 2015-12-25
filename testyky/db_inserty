@@ -11,37 +11,50 @@ db.tests.insert(
    }
 )
 
+
+var dbPacksInsert = {
+	"projectName": "",
+	"prefilledForm": "1",	
+	"neededForm": "0",
+	"formType": "0",
+	"testCounts": "",
+	"neededThankyou": "1"
+};
+
+var dbResultsInsert = {
+	"packUuid": "",
+	"userUuid": "",
+	"projectName": "",
+	"name": "",
+	"surname": "",
+	"email": ""
+};
+
+
+
+
 db.packs.insert({
-	uuid: "261e0331-a97f-11e5-b747-95216473bf7c",
-	prefilledForm: "1",	
-	neededForm: "0",
-	formType: "0",
-	testCounts: "3",
-	test1: "someTestID",
-	test1Pause: "",
-	test1Copmleted: "",
-	test2: "someTestID",
-	test2Pause: "",
-	test2Copmleted: "",	
-	test3: "someTestID",
-	test3Pause: "",
-	test3Copmleted: "0",	
-	neededThankyou: "1"
+	"packUuid": "none",
+	"userUuid": "261e0331-a97f-11e5-b747-95216473bf7c",
+	"prefilledForm": "1",	
+	"neededForm": "0",
+	"formType": "0",
+	"testCounts": "3",
+	"test1": "someTestID",
+	"test1Pause": "",
+	"test1Copmleted": "",
+	"test2": "someTestID",
+	"test2Pause": "",
+	"test2Copmleted": "",	
+	"test3": "someTestID",
+	"test3Pause": "",
+	"test3Copmleted": "0",	
+	"neededThankyou": "1"
 })
 
-db.tests.insert({
-	name: "Логічне мислення",
-	description: "Ця методика дуже потрібна та корисна",
-	instruction: "При проходженні цієї методики...",
-	qNumber: "6",
-	sNumber: "2",
-	scale1Name: "Шкала 1",
-	scale1Algo: "",
-	scale1Min: "2",
-	scale1Max: "2",
-	scale1Interpret: "Якщо показник за цією шкалою перевищує 2, то - виражена характеристика",
-	questions: ["t1 запитання 1", "t1 запитання 2", t1 запитання 3", "t1 запитання 4", t1 запитання 5", "t1 запитання 6"]
-})
+
+	
+
 
 db.results.insert({
 	packUuid: "none",

@@ -43,6 +43,8 @@ div.footer {
 /******************************/
 .newUserData{display: none;}
 
+.testSelect_1, .testSelect_2, .testSelect_3, .testSelect_4, .testSelect_5, .testSelect_6, .testSelect_7, .testSelect_8, .testSelect_9, .testSelect_10, .testSelect_11, .testSelect_12 {display: none;}
+
 .linkToGo {text-align: center;}
 .linkToGo legend {text-align: left;}
 .linkToGo input {width: 500px; text-align: center;}

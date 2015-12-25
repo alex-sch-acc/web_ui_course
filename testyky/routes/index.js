@@ -25,12 +25,12 @@ function user_packUuidFindUpdate (packUuidVal, userUuidVal, usedFunction, collec
 
 /* GET HOME page */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-    // var db = req.db;
-    // var collection = db.get('tests');
-    // 	  collection.find({},{},function(e,docs){
-    //    res.json(docs);
-    // });
+  // res.render('index', { title: 'Express' });
+    var db = req.db;
+    var collection = db.get('tests');
+    	  collection.find({},{},function(e,docs){
+        res.json(docs);
+    });
 });
 
 
@@ -38,6 +38,35 @@ router.get('/', function(req, res, next) {
 router.get('/test/:assembly_uid', function(req, res, next) {
   res.render('test', { title: req.params.assembly_uid });
 });
+
+
+/* GET test values by title */
+router.get('/tests/:name', function(req, res, next) {
+  var collection = req.db.get('tests');
+  // console.log(req.params.name);
+  collection.distinct(req.params.name, function(err, result) {
+    if (err) {res.send("There was an error finding user"); } 
+    else {res.send(result);}
+  });
+});
+
+
+/* GET all tests */
+router.get('/gettests', function(req, res, next) {
+  var collection = req.db.get('tests');
+  // console.log(req.params.name);
+  collection.find({}, function(err, result) {
+    if (err) {res.send("There was an error finding user"); } 
+    else {res.send(result);}
+  });
+});
+
+// db.get('tests').find({email: req.params.id}, function(err, result) {
+
+
+
+
+
 
 /* GET THANK YOU page */
 router.get('/thankyou', function(req, res, next) {
@@ -52,6 +81,22 @@ router.get('/admin', function(req, res, next) {
 });
 
 /***************************************/
+
+// ADDING a new result document to results collection
+router.post('/addPack', function(req, res) {
+  var db = req.db;
+  var collection = db.get('packs');
+  collection.insert(req.body, function(err, result){
+      res.send(
+          (err === null) ? { msg: '' } : { msg: err }
+      );
+  });
+});
+
+
+
+
+
 
 /*** R E S U L T S *********************/
 
@@ -73,6 +118,8 @@ router.post('/addResult', function(req, res) {
 });
 
 
+
+
 // UPDATING existing result document with a new info in results collection
 router.put('/updateResult', function(req, res) {
   var db = req.db;
@@ -84,6 +131,23 @@ router.put('/updateResult', function(req, res) {
 // Looking for and updating needed collection
 user_packUuidFindUpdate(packUuidVal, userUuidVal, updateDocument, collection, req.body);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /***************************************/

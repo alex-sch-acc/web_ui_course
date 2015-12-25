@@ -2,7 +2,10 @@ var domainName = 'http://localhost:3000/';
 
 var ajaxData = [
 		['/addResult' , 'dbAddResult'], 
-		['/updateResult', 'dbResultsUpdate']
+		['/updateResult', 'dbResultsUpdate'],
+		['/getTests', 'dbGetTests'],
+		['/tests/name', 'dbGetTests'],
+		['/addPack', 'dbAddValuesRes']
 ];
 
 /*** C O M M O N  F U N C T I O N S ***/
@@ -28,7 +31,6 @@ function ajaxPut(route, updatedInfo, consoleFuncName) {
 
 }
 
-
 // AJAX - POST (add)
 function ajaxPost(route, newInfo, consoleFuncName) {
 
@@ -48,7 +50,6 @@ function ajaxPost(route, newInfo, consoleFuncName) {
 		console.log(consoleFuncName + '.complete');
 	});
 }
-
 
 /**************************************/
 
